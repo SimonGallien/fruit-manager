@@ -28,3 +28,17 @@ if st.sidebar.button("Vendre"):
     ecrire_inventaire(inventaire)
     ecrire_tresorerie(tresorerie)
     st.rerun()
+
+st.sidebar.subheader("🌱 Récolter des Fruits")
+
+select_recolter = st.sidebar.selectbox(
+    "Choisir un fruit à récolter", inventaire
+)
+qte_recolter = st.sidebar.number_input(
+    "Quantité à récolter", value=5, min_value=0
+)
+
+if st.sidebar.button("Récolter"):
+    recolter(inventaire, select_recolter, qte_recolter)
+    ecrire_inventaire(inventaire)
+    st.rerun()
